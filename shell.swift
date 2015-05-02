@@ -9,6 +9,11 @@ if let user = env["USER"] as? String {
 let currentPath = NSFileManager.defaultManager().currentDirectoryPath
 println("The current directory is \(currentPath)")
 
+let content = "content";
+let data = NSData(base64EncodedString: content, options: .allZeros);
+let result = NSFileManager.defaultManager().createFileAtPath(currentPath+"/copy", contents:data,attributes:nil);
+println(result);
+
 let contentsAtPath = NSFileManager.defaultManager().contentsOfDirectoryAtPath(currentPath, error: nil) as? [String]
 if let contents = contentsAtPath {
     
